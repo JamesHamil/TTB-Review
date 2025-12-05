@@ -1,6 +1,8 @@
 // Constants for the TTB Label Verification System
 
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// In production, use relative URLs (same domain). In development, use localhost backend.
+export const API_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.PROD ? '' : 'http://localhost:3001');
 
 export const BEVERAGE_CATEGORIES = {
   SPIRITS: 'spirits' as const,
