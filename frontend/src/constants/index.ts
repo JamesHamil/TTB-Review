@@ -1,8 +1,6 @@
 // Constants for the TTB Label Verification System
 
-// In production (Vercel), use relative URLs. In development, use localhost backend
-export const API_URL = import.meta.env.VITE_API_URL || 
-  (import.meta.env.PROD ? '' : 'http://localhost:3001');
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export const BEVERAGE_CATEGORIES = {
   SPIRITS: 'spirits' as const,

@@ -25,6 +25,6 @@ app.use(errorHandler);
 
 // Start server
 app.listen(config.port, () => {
-  console.log(`✅ Backend server running on http://localhost:${config.port}`);
-  console.log(`📡 API endpoint: http://localhost:${config.port}/api/verify-label`);
+  console.log(`Backend server running on http://localhost:${config.port}`);
+  console.log(`API endpoint: http://localhost:${config.port}/api/verify-label`);
 });
