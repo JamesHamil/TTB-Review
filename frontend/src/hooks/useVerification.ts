@@ -131,15 +131,15 @@ export function useVerification() {
         ? true
         : Array.isArray(analysisResult.netContentsMatches)
         ? analysisResult.netContentsMatches.every((m) => m.found)
-        : analysisResult.netContentsMatch;
+        : (analysisResult.netContentsMatch ?? false);
 
     const categoryRequirementsMet =
-      formData.beverageCategory === 'wine' ? analysisResult.sulfiteDeclarationFound === true : true;
+      formData.beverageCategory === 'wine' ? (analysisResult.sulfiteDeclarationFound === true) : true;
 
     const allRequiredMatch =
-      analysisResult.brandNameMatch &&
-      analysisResult.productTypeMatch &&
-      analysisResult.alcoholContentMatch &&
+      (analysisResult.brandNameMatch ?? false) &&
+      (analysisResult.productTypeMatch ?? false) &&
+      (analysisResult.alcoholContentMatch ?? false) &&
       netContentsAllMatch &&
       categoryRequirementsMet;
 
