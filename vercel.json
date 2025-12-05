@@ -1,14 +1,16 @@
-{
-  "version": 2,
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/dist",
-  "installCommand": "cd frontend && npm install && cd ../api && npm install",
-  "framework": "vite",
-  "functions": {
-    "api/index.js": {
-      "runtime": "nodejs20.x",
-      "maxDuration": 30
-    }
-  }
-}
 
+{
+
+    "version": 2,
+    "builds": [{
+        "src": "backend/server.js",
+        "use": "@vercel/node"
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "backend/server.js"
+        }
+    ]
+
+}
