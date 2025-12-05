@@ -147,14 +147,14 @@ export function useVerification() {
       analysisResult.complianceIssues && analysisResult.complianceIssues.length > 0;
 
     return {
-      success: allRequiredMatch && analysisResult.governmentWarningFound && !hasComplianceIssues,
+      success: allRequiredMatch && (analysisResult.governmentWarningFound ?? false) && !hasComplianceIssues,
       brandNameMatch: analysisResult.brandNameMatch,
       productTypeMatch: analysisResult.productTypeMatch,
       alcoholContentMatch: analysisResult.alcoholContentMatch,
       netContentsMatch: netContentsAllMatch,
-      governmentWarningFound: analysisResult.governmentWarningFound,
-      sulfiteDeclarationFound: analysisResult.sulfiteDeclarationFound || false,
-      ingredientsFound: analysisResult.ingredientsFound || false,
+      governmentWarningFound: analysisResult.governmentWarningFound ?? false,
+      sulfiteDeclarationFound: analysisResult.sulfiteDeclarationFound ?? false,
+      ingredientsFound: analysisResult.ingredientsFound ?? false,
       complianceIssues: analysisResult.complianceIssues || [],
       details,
       extractedText: analysisResult.extractedText || '',
